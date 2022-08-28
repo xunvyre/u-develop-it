@@ -7,12 +7,10 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.get('/', (req, res) =>
+//default response for any other request (404)
+app.use((req, res) =>
 {
-    res.json
-    ({
-        message: `Hello world!`
-    });
+    res.status(404).end();
 });
 
 app.listen(PORT, () =>
